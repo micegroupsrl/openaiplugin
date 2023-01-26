@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/it.micegroup.openai.feature_1.0.0.202301251847.jar" id="it.micegroup.openai.feature" version="1.0.0.202301251847">
+      <category name="miceopenaiplugins"/>
+   </feature>
+   <category-def name="miceopenaiplugins" label="Mice OpenAi Plugins">
+      <description>
+         This plugin allows developers to easily generate code using OpenAI&apos;s GPT-3 technology, directly from within the Eclipse IDE.
+      </description>
+   </category-def>
+</site>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension point="org.eclipse.ui.commands">
+        <command
+             name="Generate Code with OpenAi..."
+             id="it.micegroup.openai.plugin.commands.generateCode">
+        </command>
+         <command
+             name="Update ApiKey"
+             id="it.micegroup.openai.plugin.commands.updateKey">
+        </command>
+    </extension>
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            commandId="it.micegroup.openai.plugin.commands.generateCode"
+            class="it.micegroup.openai.plugin.handlers.OpenAiGenerateCodeAction">
+      </handler>
+      <handler
+            commandId="it.micegroup.openai.plugin.commands.updateKey"
+            class="it.micegroup.openai.plugin.handlers.UpdateApiKeyAction">
+      </handler>
+   </extension>
+    <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="it.micegroup.openai.plugin.commands.generateCode"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="CTRL+ALT+O">
+      </key>
+   </extension>
+   
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.jdt.ui.source.menu?after=generateGroup">
+        <command
+              commandId="it.micegroup.openai.plugin.commands.generateCode"
+              id="it.micegroup.openai.plugin.menus.generateCode">
+        </command>
+      </menuContribution>
+   </extension>
+   
+   <!-- <extension point="org.eclipse.ui.menus">
+    <menuContribution locationURI="menu:org.eclipse.ui.main.menu">
+        <menu id="openai.menu" label="OpenAi" icon="icons/openai-avatar-white.png">
+            <command 
+            	commandId="it.micegroup.openai.plugin.commands.updateKey" 
+            	id="it.micegroup.openai.plugin.menus.updateKey" 
+            	label="Aggiorna OpenAi Secret Key">
+            </command>
+        </menu>
+    </menuContribution>
+	</extension> -->
+
+	<extension point="org.eclipse.ui.preferencePages">
+	  <page
+	    class="it.micegroup.openai.plugin.preference.OpenAiPreferencePage"
+	    id="it.micegroup.openai.plugin.preference.openai"
+	    name="OpenAI"
+	    after="org.eclipse.wst.xml.ui.preferences.XMLPreferencePage">
+	  </page>
+	</extension>
+	
+	<extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="it.micegroup.openai.plugin.Activator">
+      </startup>
+   </extension>
+</plugin>
